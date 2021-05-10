@@ -21,11 +21,9 @@ class Movie {
     private $anni_da_uscita;
 
     //Costruttore
-    function __construct($_titolo , $_regista,$_anno_uscita) {
+    function __construct($_titolo , $_regista) {
         $this->titolo = $_titolo;
         $this->regista = $_regista;
-        $this->anno_uscita = $_anno_uscita;
-        $this->anni_da_uscita = (date("Y") - $_anno_uscita);
     }
 
     //Metodi
@@ -44,15 +42,17 @@ class Movie {
 
 //Istanze
 
-$django = new Movie("Django","Tarantino","2012");
+$django = new Movie("Django","Tarantino");
 echo ($django->titolo."<br>");
 echo ($django->regista."<br>");
+$django->setAnni($django->anno_uscita);
 
 
 
-$shining = new Movie("Shining","Kubrick","1997");
+$shining = new Movie("Shining","Kubrick");
 echo ($shining->titolo."<br>");
 echo ($shining->regista."<br>");
+$django->setAnni($django->anno_uscita);
 $shining->setDurata("2:26:00");
 $shining->getDurata();
 
