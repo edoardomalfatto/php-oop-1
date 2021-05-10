@@ -36,7 +36,10 @@ class Movie {
     }
 
     public function setAnni($anno_uscita){
-        $this->anni_da_uscita = (date("Y") - $anno_uscita); 
+        if($anno_uscita){
+            $this->anni_da_uscita = (date("Y") - $anno_uscita); 
+        }
+        
     } 
 }
 
@@ -45,6 +48,7 @@ class Movie {
 $django = new Movie("Django","Tarantino");
 echo ($django->titolo."<br>");
 echo ($django->regista."<br>");
+$django->anno_uscita="2012";
 $django->setAnni($django->anno_uscita);
 
 
@@ -52,6 +56,7 @@ $django->setAnni($django->anno_uscita);
 $shining = new Movie("Shining","Kubrick");
 echo ($shining->titolo."<br>");
 echo ($shining->regista."<br>");
+$django->anno_uscita="1980";
 $django->setAnni($django->anno_uscita);
 $shining->setDurata("2:26:00");
 $shining->getDurata();
